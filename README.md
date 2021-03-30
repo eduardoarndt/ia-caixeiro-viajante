@@ -3,8 +3,8 @@
 To run with default configuration values just run `python main.py`
 
 ### Parameters
-| parameter      | type | default | description     |
-|----------------|------|---------|-----------------|
+| Parameter      | Type | Default | Description     |
+|:---------------|:-----|:--------|:----------------|
 | `--population` | int  | 100     | Population size |
 
 ### Example with parameters
