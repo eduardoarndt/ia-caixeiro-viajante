@@ -3,9 +3,9 @@
 To run with default configuration values just run `python main.py`
 
 ### Parameters
-| Parameter      | Type | Default | Description     |
-|:---------------|:-----|:--------|:----------------|
-| `--population` | int  | 100     | Population size |
+| Parameter  | Type | Default | Description     |
+|:-----------|:-----|:--------|:----------------|
+| population | int  | 100     | Population size |
 
 ### Example with parameters
 
