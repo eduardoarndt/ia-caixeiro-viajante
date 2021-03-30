@@ -1,5 +1,4 @@
 from cities import cities
-from distances import distances
+from functions import generate_initial_population
 
-print(cities)
-print(distances[cities[0]][cities[1]])
+population = generate_initial_population(cities)
