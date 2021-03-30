@@ -12,7 +12,7 @@ def generate_initial_population(cities_list):
         cities_list_copy = list(cities_list)
         attributes_copy = dict(attributes)
 
-        random.shuffle(cities_list)
+        random.shuffle(cities_list_copy)
         attributes_copy['initial_city'] = cities_list_copy.pop(0)
         attributes_copy['final_city'] = attributes_copy['initial_city']
         attributes_copy['cities_list'] = cities_list_copy
