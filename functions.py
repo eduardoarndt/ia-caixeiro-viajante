@@ -1,12 +1,15 @@
 import random
 
+attributes = {
+    'cities_list': [],
+    'initial_city': None,
+    'final_city': None,
+    'total_distance': None
+}
+
+
 def generate_initial_population(cities_list, population_size):
     population = []
-    attributes = {
-        'cities_list': [],
-        'initial_city': None,
-        'final_city': None
-    }
 
     for x in range(population_size):
         cities_list_copy = list(cities_list)
