@@ -11,7 +11,7 @@ parser.add_argument('--population')
 args = parser.parse_args()
 
 try:
-    population_size = int(args.population) or 100
+    population_size = int(args.population or 100)
 except Exception as exception:
     print("Invalid value given to a input parameter. Check the docs.")
     raise exception
