@@ -1,4 +1,5 @@
 import random
+
 from distances import distances
 
 attributes = {

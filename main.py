@@ -19,11 +19,11 @@ except Exception as exception:
 population = generate_initial_population(cities, population_size)
 
 for x in range(len(population)):
-    population[x]['total_distance'] = calculate_distance(population[x]['initial_city'], population[x]['final_city'], population[x]['cities_list'])
+    population[x]['total_distance'] = calculate_distance(population[x]['initial_city'], population[x]['final_city'],
+                                                         population[x]['cities_list'])
 
 population = fitness(population)
 population = select_best_half(population)
-
 
 i = 0
 new_population = []
@@ -33,6 +33,8 @@ while i < len(population):
     i += 2
 
 for x in range(len(new_population)):
-    new_population[x]['total_distance'] = calculate_distance(new_population[x]['initial_city'], new_population[x]['final_city'], new_population[x]['cities_list'])
+    new_population[x]['total_distance'] = calculate_distance(new_population[x]['initial_city'],
+                                                             new_population[x]['final_city'],
+                                                             new_population[x]['cities_list'])
 
 population = population + new_population
