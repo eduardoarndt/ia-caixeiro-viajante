@@ -4,19 +4,22 @@ from cities import cities
 from functions import generate_initial_population, calculate_distance, fitness, select_best_half, crossover
 
 population_size = None
+initial_city = None
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--population')
+parser.add_argument('--city')
 
 args = parser.parse_args()
 
 try:
     population_size = int(args.population or 100)
+    initial_city = str(args.city or "PORTO_ALEGRE")
 except Exception as exception:
     print("Invalid value given to a input parameter. Check the docs.")
     raise exception
 
-population = generate_initial_population(cities, population_size)
+population = generate_initial_population(cities, population_size, initial_city)
 
 for x in range(len(population)):
     population[x]['total_distance'] = calculate_distance(population[x]['initial_city'], population[x]['final_city'],

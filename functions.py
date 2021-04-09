@@ -10,7 +10,7 @@ attributes = {
 }
 
 
-def generate_initial_population(cities_list, population_size):
+def generate_initial_population(cities_list, population_size, initial_city):
     population = []
 
     for x in range(population_size):
@@ -18,9 +18,10 @@ def generate_initial_population(cities_list, population_size):
         attributes_copy = dict(attributes)
 
         random.shuffle(cities_list_copy)
-        attributes_copy['initial_city'] = cities_list_copy.pop(0)
-        attributes_copy['final_city'] = attributes_copy['initial_city']
+        attributes_copy['initial_city'] = initial_city
+        attributes_copy['final_city'] = initial_city
         attributes_copy['cities_list'] = cities_list_copy
+        attributes_copy['cities_list'].remove(initial_city)
         population.append(attributes_copy)
 
     return population
