@@ -57,30 +57,6 @@ def select_best_half(population):
     return population[: len(population) // 2]
 
 
-def crossover_ox_simple(cities_list_a, cities_list_b):
-    a = list(cities_list_a)
-    b = list(cities_list_b)
-
-    child = [None for x in range(25)]
-
-    # passo inicial - copiar meio da lista A para meio do filho
-    for x in range(8, 16):
-        child[x] = a[x]
-
-    # remover elementos já existentes no filho da lista B
-    for x in child:
-        if x in b:
-            b.remove(x)
-
-    # copiar inicio da lista B para inicio do filho
-    child[0:8] = b[0:8]
-
-    # copiar final da lista B para final do filho
-    child[16:25] = b[8:17]
-
-    return child
-
-
 def crossover(population_a, population_b):
     attributes_copy = dict(attributes)
 
@@ -103,12 +79,6 @@ def crossover(population_a, population_b):
 
     part = b3 + b1 + b2
 
-    if attributes_copy['initial_city'] in part:
-        part.remove(attributes_copy['initial_city'])
-
-    if population_b_copy['initial_city'] not in part:
-        part.append(population_b_copy['initial_city'])
-
     for x in child:
         if x in part:
             part.remove(x)
@@ -119,3 +89,16 @@ def crossover(population_a, population_b):
     attributes_copy['cities_list'] = child
 
     return attributes_copy
+
+
+def mutate_population(population):
+    random_numbers = random.sample(range(0, len(population)-1), int(len(population) * 0.25))
+
+    for y in range(3):
+        for x in range(len(random_numbers)):
+            pos_a = random.randrange(len(population[x]['cities_list']))
+            pos_b = random.randrange(len(population[x]['cities_list']))
+
+            temp = population[x]['cities_list'][pos_a]
+            population[x]['cities_list'][pos_a] = population[x]['cities_list'][pos_b]
+            population[x]['cities_list'][pos_b] = temp
