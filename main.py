@@ -2,7 +2,7 @@ import argparse
 import time
 
 from cities import cities
-from functions import generate_initial_population, calculate_distance, fitness, select_best_half, crossover, \
+from functions import generate_initial_population, calculate_distance, sort_best_to_worst_distance, select_best_half, crossover, \
     mutate_population
 
 population_size = 100
@@ -34,15 +34,18 @@ for x in range(len(population)):
 
 counter = 0
 while counter < eras:
-    population = fitness(population)
+    population = sort_best_to_worst_distance(population)
     population = select_best_half(population)
 
     i = 0
     new_population = []
-    while i < len(population):
-        new_population.append(crossover(population[i], population[i + 1]))
-        new_population.append(crossover(population[i + 1], population[i]))
-        i += 2
+    while i < len(population) // 2:
+        population_copy = list(population)
+        population_copy.reverse()
+
+        new_population.append(crossover(population[i], population_copy[i]))
+        new_population.append(crossover(population_copy[i], population[i]))
+        i += 1
 
     mutate_population(new_population)
 
@@ -55,8 +58,6 @@ while counter < eras:
 
     counter = counter + 1
 
-population = fitness(population)
+population = sort_best_to_worst_distance(population)
 
 print("--- %s seconds ---" % (time.time() - start_time))
-
-print(population)

@@ -49,7 +49,7 @@ def calculate_distance(initial_city, final_city, cities_list):
     return total_distance
 
 
-def fitness(population):
+def sort_best_to_worst_distance(population):
     return sorted(population, key=lambda k: k['total_distance'])
 
 
