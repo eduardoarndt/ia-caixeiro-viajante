@@ -37,9 +37,16 @@ while counter < eras:
     population = sort_best_to_worst_distance(population)
     population = select_best_half(population)
 
+    quantity_of_pairs = len(population) // 2
+
+    if (len(population) // 2 % 2) == 0:
+        quantity_of_pairs = len(population) // 2
+    else:
+        quantity_of_pairs = len(population) // 2 - 1
+
     i = 0
     new_population = []
-    while i < len(population) // 2:
+    while i < quantity_of_pairs:
         population_copy = list(population)
         population_copy.reverse()
 
@@ -56,8 +63,14 @@ while counter < eras:
 
     population = list(population) + list(new_population)
 
+    print("Melhor distancia da era " + str(counter) + ": " + str(population[0]['total_distance']))
+
     counter = counter + 1
 
 population = sort_best_to_worst_distance(population)
 
-print("--- %s seconds ---" % (time.time() - start_time))
+print("\n------------\n")
+print("Tempo de execução: %s segundos" % round((time.time() - start_time), 2))
+print("A melhor solução tem distância de: " + str(population[0]['total_distance']))
+print("A cidade inicial foi: " + population[0]['initial_city'])
+print("A ordem das cidades foi: " + str(population[0]['cities_list']))

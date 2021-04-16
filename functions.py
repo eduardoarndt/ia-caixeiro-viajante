@@ -61,7 +61,6 @@ def crossover(population_a, population_b):
     attributes_copy = dict(attributes)
 
     population_a_copy = dict(population_a)
-    population_b_copy = dict(population_b)
 
     a = list(population_a['cities_list'])
     b = list(population_b['cities_list'])
@@ -92,13 +91,13 @@ def crossover(population_a, population_b):
 
 
 def mutate_population(population):
-    random_numbers = random.sample(range(0, len(population)-1), int(len(population) * 0.25))
+    random_numbers = random.sample(range(0, len(population)-1), int(len(population) * 0.75))
 
-    for y in range(3):
-        for x in range(len(random_numbers)):
-            pos_a = random.randrange(len(population[x]['cities_list']))
-            pos_b = random.randrange(len(population[x]['cities_list']))
+    # for y in range(3):
+    for x in range(len(random_numbers)):
+        pos_a = random.randrange(len(population[x]['cities_list']))
+        pos_b = random.randrange(len(population[x]['cities_list']))
 
-            temp = population[x]['cities_list'][pos_a]
-            population[x]['cities_list'][pos_a] = population[x]['cities_list'][pos_b]
-            population[x]['cities_list'][pos_b] = temp
+        temp = population[x]['cities_list'][pos_a]
+        population[x]['cities_list'][pos_a] = population[x]['cities_list'][pos_b]
+        population[x]['cities_list'][pos_b] = temp
