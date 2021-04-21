@@ -6,7 +6,7 @@ from functions import generate_initial_population, calculate_distance, sort_best
     mutate_population
 
 population_size = 100
-eras = 5000
+eras = 2000
 initial_city = "PORTO_ALEGRE"
 
 parser = argparse.ArgumentParser()
