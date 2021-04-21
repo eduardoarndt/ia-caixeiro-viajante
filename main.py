@@ -42,7 +42,7 @@ while counter < eras:
     if (len(population) // 2 % 2) == 0:
         quantity_of_pairs = len(population) // 2
     else:
-        quantity_of_pairs = len(population) // 2 - 1
+        quantity_of_pairs = (len(population) - 1) // 2
 
     i = 0
     new_population = []
