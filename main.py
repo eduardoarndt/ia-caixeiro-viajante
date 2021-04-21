@@ -37,9 +37,9 @@ while counter < eras:
     population = sort_best_to_worst_distance(population)
     population = select_best_half(population)
 
-    quantity_of_pairs = len(population) // 2
+    quantity_of_pairs = None
 
-    if (len(population) // 2 % 2) == 0:
+    if (len(population) % 2) == 0:
         quantity_of_pairs = len(population) // 2
     else:
         quantity_of_pairs = (len(population) - 1) // 2
