@@ -71,6 +71,7 @@ population = sort_best_to_worst_distance(population)
 
 print("\n------------\n")
 print("Tempo de execução: %s segundos" % round((time.time() - start_time), 2))
-print("A melhor solução tem distância de: " + str(population[0]['total_distance']))
+print("A melhor solução tem distância de: " + str(population[0]['total_distance']) + " km")
 print("A cidade inicial foi: " + population[0]['initial_city'])
 print("A ordem das cidades foi: " + str(population[0]['cities_list']))
+print("A cidade final foi: " + population[0]['final_city'])
