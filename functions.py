@@ -94,7 +94,8 @@ def mutate_population(population):
     random_numbers = random.sample(range(0, len(population)-1), int(len(population) * 0.75))
 
     # for y in range(3):
-    for x in range(len(random_numbers)):
+    for x in random_numbers:
+        print("x é: " + str(x))
         pos_a = random.randrange(len(population[x]['cities_list']))
         pos_b = random.randrange(len(population[x]['cities_list']))
 
